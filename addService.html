@@ -162,16 +162,19 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="panel panel-default">
-                            <div class="panel-heading">
+                            <div class="panel-heading" id="panelHead">
                                 Please fill the details
+                            </div>
+                            <div class="panel-heading hidden" id="errors">
+                                <p><h1>Errors</h1></p>
                             </div>
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <form role="form">
+                                        <form role="form" id= "addServiceForm">
                                             <div class="form-group">
                                                 <label>Service Name</label>
-                                                <input class="form-control">
+                                                <input class="form-control" name= "name">
                                                 <p class="help-block">Enter Service Name</p>
                                             </div>
                                             <div class="form-group" id= "serviceGroup">
@@ -180,71 +183,47 @@
                                             <div class="form-group">
                                                 <label>Is Open Now</label>
                                                 <label class="radio-inline">
-                                                    <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline1" value="option1" checked>Open
+                                                    <input type="radio" name="isOpenNow" id="optionsRadiosInline1" value=true checked>Open
                                                 </label>
                                                 <label class="radio-inline">
-                                                    <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline2" value="option2">Close
+                                                    <input type="radio" name="isOpenNow" id="optionsRadiosInline2" value=false>Close
                                                 </label>
                                             </div>
-
-                                            <h1>Rating</h1>
-                                            <form role="form">
-                                                <fieldset>
-                                                        <div class="form-group">
-                                                                <label>rate on scale</label>
-                                                                <label class="radio-inline">
-                                                                    <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline1" value="option1" checked>1
-                                                                </label>
-                                                                <label class="radio-inline">
-                                                                    <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline2" value="option2">2
-                                                                </label>
-                                                                <label class="radio-inline">
-                                                                    <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline3" value="option3">3
-                                                                </label>
-                                                                <label class="radio-inline">
-                                                                        <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline2" value="option2">4
-                                                                    </label>
-                                                                    <label class="radio-inline">
-                                                                        <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline3" value="option3">5
-                                                                    </label>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Comments</label>
-                                                            <input class="form-control" placeholder="Enter text">
-                                                        </div>
-                                                </fieldset>
-                                            </form>
-                                            
-                                            <button type="submit" class="btn btn-default">Submit Button</button>
-                                            <button type="reset" class="btn btn-default">Reset Button</button>
-                                        </form>
+                                            <fieldset>
+                                                <div class="form-group">
+                                                    <label>ImageURL</label>
+                                                    <input class="form-control" name="imageURL" placeholder="Enter text">
+                                                </div>
+                                            </fieldset>
                                     </div>
                                     <!-- /.col-lg-6 (nested) -->
                                     <div class="col-lg-6">
                                      
                                         <h1>Address</h1>
-                                        <form role="form">
+                                    
                                             <div class="form-group">
                                                 <label>Address</label>
-                                                <input class="form-control" placeholder="Enter Address">
+                                                <input class="form-control" name= "basicAddress" placeholder="Enter Address">
                                             </div>
                                             <div class="form-group">
                                                 <label>LandMark</label>
-                                                <input class="form-control" placeholder="Enter LandMark Details">
+                                                <input class="form-control" name="landMark" placeholder="Enter LandMark Details">
                                             </div>
                                             <div class="form-group">
                                                     <label>Longitude</label>
-                                                    <input class="form-control" type= "number" placeholder="Enter Longitude">
+                                                    <input class="form-control" name= "longitude" placeholder="Enter Longitude">
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Latitude</label>
-                                                    <input class="form-control" type="number" placeholder="Enter Latitude">
+                                                    <input class="form-control" name="latitude" placeholder="Enter Latitude">
                                                 </div>
                                             <div class="form-group">
                                                 <label>Area</label>
                                                 <select class="form-control" id= "serviceArea">
                                                 </select>
                                             </div>
+                                            <button type="submit" class="btn btn-default" id="submitData">Submit Button</button>
+                                            <button type="reset" class="btn btn-default">Reset Button</button>
                                         </form>
                                     </div>
                                     <!-- /.col-lg-6 (nested) -->
