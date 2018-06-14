@@ -25,7 +25,7 @@ $(document).ready(function(){
         {
             "title": "Categories",
             "data" : "categoriesStr"
-        },]
+        }]
     });
 
     $.ajax({

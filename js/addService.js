@@ -26,8 +26,6 @@ $(document).ready(function() {
         }
       });
     
-    
-
     $("#submitData").click(function(e){
         e.preventDefault();
         var inputs = $('#addServiceForm').serializeArray();
@@ -35,7 +33,20 @@ $(document).ready(function() {
         var errors = [];
 
         $.map(inputs, function(n, i){
-            data[n['name']] = n['value'];
+            if(n['name'] != "serviceGroup"){
+                data[n['name']] = n['value'];
+            }
+        });
+        console.log(data);
+        
+        var sGroups = [];
+        $("input:checkbox[name=serviceGroup]:checked").each(function(){
+            var sGroup = {
+                    "__type":"Pointer",
+                    "className":"ServiceGroup",
+                    "objectId":$(this).val()
+            }
+            sGroups.push(sGroup);
         });
         
         if(!data['name']){
@@ -53,6 +64,12 @@ $(document).ready(function() {
         if(!data['imageURL']){
             errors.push("Please Enter valid imageURL\n");
         }
+        if(!data['active']){
+            errors.push("Please Select active\n");
+        }
+        if(!sGroups.length){
+            errors.push("Please Select atleast one service Group\n");
+        }
 
         if(errors.length){
             alert("Please Check Errors")
@@ -66,13 +83,8 @@ $(document).ready(function() {
                 "name": data['name'],
                 "isOpenNow": Boolean(data['isOpenNow']),
                 "image": data["imageURL"],
-                "serviceGroup": [
-                    {
-                        "__type":"Pointer",
-                        "className":"ServiceGroup",
-                        "objectId":"X12nrOyMKe"
-                    }
-                ]
+                "serviceGroup": sGroups,
+                "active": Boolean(data['active'])
             }
             $.ajax({
                 url: "https://pg-app-t024acr8t0y45v0wg0ic2giyd2dbur.scalabl.cloud/1/classes/Service",
@@ -84,7 +96,7 @@ $(document).ready(function() {
                 "method": "POST",
                 "data": JSON.stringify(requestData),
                 success: function(res){
-                    console.log(res);
+                    window.location.href = "https://partylife05.github.io/servicesList.html";
                 },
                 error: function(error){
                     alert(error);
