@@ -61,12 +61,17 @@ $(document).ready(function() {
             $("#errors").addClass("text-danger");
             $("#errors").removeClass("hidden");
         }else{
+            var serviceGroups = "";
             var requestData = {
                 "name": data['name'],
                 "isOpenNow": Boolean(data['isOpenNow']),
                 "image": data["imageURL"],
                 "serviceGroup": [
-
+                    {
+                        "__type":"Pointer",
+                        "className":"ServiceGroup",
+                        "objectId":"X12nrOyMKe"
+                    }
                 ]
             }
             $.ajax({
