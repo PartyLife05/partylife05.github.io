@@ -13,10 +13,15 @@ $(document).ready(function(){
             dataSrc : 'result'
         },
         "columns" : [{
-            "data" : "name"
+            "data" : "name",
         },{
-            "data" : "className"
-        }]
+            "data" : "isOpenNow"
+        },{
+            "data" : "active"
+        },
+        {
+            "data" : "categoriesStr"
+        },]
     });
 
     $.ajax({
