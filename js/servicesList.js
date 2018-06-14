@@ -13,13 +13,17 @@ $(document).ready(function(){
             dataSrc : 'result'
         },
         "columns" : [{
+            "title": "Name",
             "data" : "name",
         },{
+            "title": "isOpenNow",
             "data" : "isOpenNow"
         },{
+            "title": "Active",
             "data" : "active"
         },
         {
+            "title": "Categories",
             "data" : "categoriesStr"
         },]
     });
